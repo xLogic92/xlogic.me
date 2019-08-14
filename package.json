@@ -1,0 +1,30 @@
+{
+  "name": "xlogic.me",
+  "version": "1.0.0",
+  "description": "Blog",
+  "main": "index.js",
+  "scripts": {
+    "start": "hugo server --buildFuture",
+    "build": "hugo --buildFuture",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xLogic92/xlogic.me.git"
+  },
+  "author": "xLogic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xLogic92/xlogic.me/issues"
+  },
+  "homepage": "https://github.com/xLogic92/xlogic.me#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "workbox-build": "^3.6.3"
+  },
+  "dependencies": {
+    "gulp-htmlmin": "^5.0.1",
+    "xml2js": "^0.4.19",
+    "xmlhttprequest": "^1.8.0"
+  }
+}

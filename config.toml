@@ -1,0 +1,70 @@
+# Site Settings
+baseurl = "https://xlogic.me/"
+languageCode = "zh-CN"
+theme = "hugo-theme-xplan"
+title = "前端X计划"
+googleAnalytics = "UA-143704500-1"
+
+[author]
+  name = "xLogic"
+
+[params]
+  # Metadata mostly used in document's head
+  subtitle = "WEB CHONG! CHONG!! CHONG!!!"
+  description = "前端X计划，一个构建知识体系的前端技术博客，只有体系化的知识结构才能教导你思考问题、引导你洞察趋势、指导你展开行动。"
+  keywords = "前端X计划, web前端博客, 前端知识体系, 算法修炼, 设计模式, 前端工程化"
+
+  # Set the site copyright
+  logo = "/images/logo.png"
+  copyright = "Copyright © 2019 xLogic"
+  beian = "浙ICP备14031527号"
+
+  enableRSS = true
+  # Add custom assets with their paths relative to the static folder
+  customCSS = []
+  customJS  = []
+
+  # Set the site analytics
+	enableGoogleAnalytics = true
+	enableBaiduAnalytics = false
+	# Set the value to your baidu analysis code if you want to use baidu analytics
+	baiduAnalytics = "your_baidu_analysis_code"
+  enableBaiduAutoPush = true
+  # Set the value to your baidu auto push appId if you want to use baidu auto push
+  baiduAutoPushAppId = "1641667592904718"
+
+  enableComments = true
+  # Set the AppId and AppKey if you want to use Comments - https://valine.js.org/
+  [params.comments]
+    appid = "vXkD200c2jFHnnBFk5Dutxut-MdYXbMMI"
+    appkey = "03NybFmUkOrR1x6NoGN8jVLa"
+
+  # Set the additional social link
+  [params.social]
+    [params.social.github]
+      name = "github"
+      url  = "https://github.com/xLogic92"
+      iconfont = "fa fa-github"
+  
+# And you can even create generic menu
+[menu]
+  [[menu.main]]
+    identifier = "archive"
+    name       = "Archives"
+    url        = "/archive"
+    weight     = 10
+
+  [[menu.main]]
+    identifier = "about"
+    name       = "About"
+    url        = "/about"
+    weight     = 20
+
+[permalinks]
+  archive = "/archive/:slug/"
+  about = "/about/"
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
