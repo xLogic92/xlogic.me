@@ -14,9 +14,7 @@ script:
 - gulp
 - echo 'Build done!'
 after_success:
-- rm -rf container/*
-- cp -r public/* container
-- cd container
+- cd public
 - scp -r ./ root@121.43.180.165:/home/www/blog;
 branches:
   only:
