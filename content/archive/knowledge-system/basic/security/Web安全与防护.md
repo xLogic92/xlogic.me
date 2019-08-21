@@ -1,12 +1,12 @@
 ---
-title: "前端知识体系之基础知识 - Web安全与防护"
-date: "2019-08-12"
-keyword: "前端知识体系,基础知识,Web安全与防护"
-tags: ["前端知识体系","基础知识","Web安全与防护"]
-slug: "2019-08-12-web-security-defend"
+title: '前端知识体系之基础知识 - Web安全与防护'
+date: '2019-08-12'
+keyword: '前端知识体系,基础知识,Web安全与防护'
+tags: ['前端知识体系', '基础知识', 'Web安全与防护']
+slug: '2019-08-12-web-security-defend'
 ---
 
-## 1. SQL注入
+## 1. SQL 注入
 
 ### 1.1 介绍
 
@@ -40,7 +40,7 @@ SELECT * FROM user WHERE username = 'user'#'AND password = 'pwd';
 
 ### 2.2 防范
 
-前端对用户输入内容进行验证，如果有风险，就进行替换。例如： `&` 替换为 `&amp;` 
+前端对用户输入内容进行验证，如果有风险，就进行替换。例如： `&` 替换为 `&amp;`
 
 ## 3. CSRF: 跨站请求伪造
 
@@ -66,9 +66,9 @@ CSRF 是借用了当前操作者的权限来偷偷地完成某个操作，而不
 1. 网络报文传输过程中对其截获、篡改（过程中）
 2. 客户端发起 http 请求之前或者得到 response 之后对数据篡改（开头、结尾）
 
-防范方式就是使用 `https`  协议，一套在传输层 TCP 和应用层 HTTP 之间的 TLS 协议。
+防范方式就是使用 `https` 协议，一套在传输层 TCP 和应用层 HTTP 之间的 TLS 协议。
 
-### 4.2 Https交互细节
+### 4.2 Https 交互细节
 
 以下内容摘自：[《深入理解 Web 安全：中间人攻击》](https://toutiao.io/posts/ju2uhb/preview)
 
@@ -119,7 +119,7 @@ CSRF 是借用了当前操作者的权限来偷偷地完成某个操作，而不
   <script>
     // 判断当前页面是否是iframe加载
     if (self === top) {
-      const style = document.getElementById("click-jack");
+      const style = document.getElementById('click-jack');
       document.body.removeChild(style);
     } else {
       top.location = self.location;
@@ -127,4 +127,3 @@ CSRF 是借用了当前操作者的权限来偷偷地完成某个操作，而不
   </script>
 </head>
 ```
-

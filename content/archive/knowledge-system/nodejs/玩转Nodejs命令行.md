@@ -1,9 +1,9 @@
 ---
-title: "前端知识体系之拓展边界 - 玩转Nodejs命令行"
-date: "2019-08-19"
-keyword: "前端知识体系,拓展边界,命令行交互,Node.js"
-tags: ["前端知识体系","拓展边界","命令行交互","Node.js"]
-slug: "2019-08-19-play-node-command"
+title: '前端知识体系之拓展边界 - 玩转Nodejs命令行'
+date: '2019-08-19'
+keyword: '前端知识体系,拓展边界,命令行交互,Node.js'
+tags: ['前端知识体系', '拓展边界', '命令行交互', 'Node.js']
+slug: '2019-08-19-play-node-command'
 ---
 
 ## 背景
@@ -22,27 +22,27 @@ slug: "2019-08-19-play-node-command"
 请先看下面代码：
 
 ```javascript
-const program = require("commander");
+const program = require('commander');
 
 // 分为2种操作, 2种操作互相冲突
 
 // Options 操作
 program
-  .version("0.0.1")
-  .option("-t, --types [type]", "test options")
+  .version('0.0.1')
+  .option('-t, --types [type]', 'test options')
   // option这句话必须加
   .parse(process.argv);
 
 // Commands 操作
 program
   // 命令与参数: <> 必填; [] 选填
-  .command("exec <cmd> [env]")
+  .command('exec <cmd> [env]')
   // 别名
-  .alias("ex")
+  .alias('ex')
   // 帮助信息
-  .description("execute the given remote cmd")
+  .description('execute the given remote cmd')
   // 没用，option和command是冲突的
-  .option("-e, --exec_mode <mode>", "Which exec mode to use")
+  .option('-e, --exec_mode <mode>', 'Which exec mode to use')
   // 执行的操作
   .action((cmd, env, options) => {
     // 参数可以拿到
@@ -50,8 +50,8 @@ program
     console.log('exec "%s" using %s mode', cmd, options.exec_mode);
   })
   // 自定义help信息
-  .on("--help", function() {
-    console.log("自定义help信息");
+  .on('--help', function() {
+    console.log('自定义help信息');
   });
 
 // 参数长度不够, 打印帮助信息
@@ -70,8 +70,8 @@ program.parse(process.argv);
 文档上基本都写明白了，但是有几个需要注意的点：
 
 1. 它主要提供 options 和 commands 两种操作，option 就是形如“-t，--types”这样的传参，commands 就是形如“exec”这样的传参。 **不要混用两者** 。
-2. 读取 commands 中传入的参数，写在 `.action`  中；读取 options 传入的参数，是通过访问 `program`  上的变量。除此之外，**options 操作需要执行  .parse(process.argv) 解析命令行参数**
-3. `-V`  和 `-h`  默认也是提供的，但是也可以通过自定义覆盖
+2. 读取 commands 中传入的参数，写在 `.action` 中；读取 options 传入的参数，是通过访问 `program` 上的变量。除此之外，**options 操作需要执行 .parse(process.argv) 解析命令行参数**
+3. `-V` 和 `-h` 默认也是提供的，但是也可以通过自定义覆盖
 4. 一般都把 options 写在前面， **顺便标识版本号** ；把 commands 写在后面；最后会判断一下参数长度，不够会自动输出打印信息
 
 ## 交互验证：inquirer
@@ -107,7 +107,7 @@ program
 
     // type: input
     // 问答框类型
-    if (typeof(config.moduleName) !== 'string') {
+    if (typeof config.moduleName !== 'string') {
       promps.push({
         type: 'input',
         name: 'moduleName',
@@ -153,41 +153,41 @@ program.parse(process.argv);
 
 整个过程中的交互体验还是非常好的，尤其是针对多个选项的时候的列表选择器，一目了然。
 
-##  颜色控制：chalk
+## 颜色控制：chalk
 
 这个比较简单，写过 C 的同学应该知道控制命令行颜色，只需要 颜色宏定义 + 字体内容 拼接即可。所以这个库也是，提供更语义化的 api 将文本处理成拼接后的结果，然后交给控制台输出。
 
 ```javascript
-const chalk = require("chalk");
+const chalk = require('chalk');
 const print = console.log;
-print(chalk.blue("Hello") + " World" + chalk.red("!"));
-print(chalk.blue.bgRed.bold("Hello World!"));
+print(chalk.blue('Hello') + ' World' + chalk.red('!'));
+print(chalk.blue.bgRed.bold('Hello World!'));
 ```
 
-##  过程控制：ora
+## 过程控制：ora
 
 它实现的核心功能是控制台刷新，我可以用它来做“下载进度条”（一直更新 text 属性即可）。当然，项目中用它来做状态提示，它会在语句前面给个转圈圈的 icon，还会有对号、错误等终止状态 icon。
 
-看下面这段代码，假想现在是在下载xxx。**可以跑一下下面代码，mac 下比 windows 下好太多**。
+看下面这段代码，假想现在是在下载 xxx。**可以跑一下下面代码，mac 下比 windows 下好太多**。
 
 ```javascript
-const ora = require("ora");
+const ora = require('ora');
 
 const spinner = ora({
-  text: "链接网络中"
+  text: '链接网络中'
 }).start(); // 开始状态 => 加载状态
 
 setTimeout(() => {
-  spinner.color = "yellow";
-  spinner.text = "网速有点慢";
+  spinner.color = 'yellow';
+  spinner.text = '网速有点慢';
 }, 1000); // 还是 加载状态, 更新文案和颜色
 
 setTimeout(() => {
-  spinner.succeed("下载成功"); // 加载状态 => 成功状态
+  spinner.succeed('下载成功'); // 加载状态 => 成功状态
 }, 2000);
 ```
 
 ## 参考
 
-- [跟着老司机玩转Node命令行](https://aotu.io/notes/2016/08/09/command-line-development/index.html)
+- [跟着老司机玩转 Node 命令行](https://aotu.io/notes/2016/08/09/command-line-development/index.html)
 - [一起来学习如何用 Node 来制作 CLI](https://juejin.im/post/5b581795e51d453509561b34)

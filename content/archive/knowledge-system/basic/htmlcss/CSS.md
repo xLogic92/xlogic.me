@@ -1,9 +1,9 @@
 ---
-title: "前端知识体系之基础知识 - CSS: 语言和功能"
-date: "2019-08-04"
-keyword: "前端知识体系,基础知识,CSS,语言和功能"
-tags: ["前端知识体系","基础知识","CSS"]
-slug: "2019-08-04-css"
+title: '前端知识体系之基础知识 - CSS: 语言和功能'
+date: '2019-08-04'
+keyword: '前端知识体系,基础知识,CSS,语言和功能'
+tags: ['前端知识体系', '基础知识', 'CSS']
+slug: '2019-08-04-css'
 ---
 
 ## 1. @rule
@@ -30,9 +30,7 @@ at-rule 由一个 @ 关键字和后续的一个区块组成，如果没有区块
   ```
 
   ```css
-  @import [ <url> | <string> ] [ supports(
-      [ <supports-condition> | <declaration> ]
-    ) ]? <media-query-list>?;
+  @import [ <url> | <string> ] [ supports([ <supports-condition> | <declaration> ]) ]? <media-query-list>?;
   ```
 
   通过代码，我们可以看出，import 还支持 supports 和 media query 形式。
@@ -55,7 +53,7 @@ at-rule 由一个 @ 关键字和后续的一个区块组成，如果没有区块
   @page {
     size: 8.5in 11in;
     margin: 10%;
-  
+
     @top-left {
       content: "Hamlet";
     }
@@ -73,7 +71,7 @@ at-rule 由一个 @ 关键字和后续的一个区块组成，如果没有区块
   @counter-style triangle {
     system: cyclic;
     symbols: ‣;
-    suffix: " ";
+    suffix: ' ';
   }
   ```
 
@@ -87,7 +85,7 @@ at-rule 由一个 @ 关键字和后续的一个区块组成，如果没有区块
       left: 0;
       top: 0;
     }
-  
+
     to {
       left: 100px;
       top: 100px;
@@ -104,7 +102,7 @@ at-rule 由一个 @ 关键字和后续的一个区块组成，如果没有区块
     font-family: Gentium;
     src: url(http://example.com/fonts/Gentium.woff);
   }
-  
+
   p {
     font-family: Gentium, serif;
   }
@@ -152,7 +150,7 @@ qualified rule 主要是由选择器和声明区块构成。声明区块又由�
       stroke: blue;
       stroke-width: 1;
     }
-    
+
     .mycls {
       font-size: 40px;
     }
@@ -191,10 +189,10 @@ qualified rule 主要是由选择器和声明区块构成。声明区块又由�
 
   - :nth-child 和 :nth-last-child 这是两个函数型的伪类，CSS 的 An+B 语法设计的是比较复杂的，我们这里仅仅介绍基本用法。我们还是看几个例子：
 
-    | 选择器                           | 效果                                                         |
-    | -------------------------------- | ------------------------------------------------------------ |
-    | :nth-child(even)                 | 选中偶数节点                                                 |
-    | :nth-child(4n-1)                 | 选中第 3 个、第 7 个、第 11 个这样符合 4 的倍数减一的数字    |
+    | 选择器                           | 效果                                                                           |
+    | -------------------------------- | ------------------------------------------------------------------------------ |
+    | :nth-child(even)                 | 选中偶数节点                                                                   |
+    | :nth-child(4n-1)                 | 选中第 3 个、第 7 个、第 11 个这样符合 4 的倍数减一的数字                      |
     | :nth-child(3n+1 of li.important) | 选中第 1 个、第 4 个、第 7 个 li.important，注意这里只有 li.important 会被计数 |
 
   - :nth-last-child 的区别仅仅是从后往前数。
@@ -437,18 +435,18 @@ CSS 属性值可能是以下类型：
 
 ```html
 <div class="outer">
-    <div class="inner"></div>
-    <div class="inner"></div>
-    <div class="inner"></div>
+  <div class="inner"></div>
+  <div class="inner"></div>
+  <div class="inner"></div>
 </div>
 ```
 
 ```css
 .inner {
-    width:33.33%;
-    height:300px;
-    display:inline-block;
-    outline:solid 1px blue;
+  width: 33.33%;
+  height: 300px;
+  display: inline-block;
+  outline: solid 1px blue;
 }
 ```
 
@@ -459,21 +457,25 @@ CSS 属性值可能是以下类型：
 解决方案是修改 HTML 代码，去掉空格和换行：
 
 ```html
-<div class="outer"><div class="inner"></div><div class="inner"></div><div class="inner"></div></div>
+<div class="outer">
+  <div class="inner"></div>
+  <div class="inner"></div>
+  <div class="inner"></div>
+</div>
 ```
 
 但是这样做影响了源代码的可读性，一个变通的方案是，改变 outer 中的字号为 0。
 
 ```css
 .inner {
-    width:33.33%;
-    height:300px;
-    display:inline-block;
-    outline:solid 1px blue;
-    font-size:30px;
+  width: 33.33%;
+  height: 300px;
+  display: inline-block;
+  outline: solid 1px blue;
+  font-size: 30px;
 }
 .outer {
-    font-size:0;
+  font-size: 0;
 }
 ```
 
@@ -481,13 +483,13 @@ CSS 属性值可能是以下类型：
 
 ```scss
 .inner {
-    width:33.33%;
-    height:300px;
-    display:inline-block;
-    outline:solid 1px blue;
+  width: 33.33%;
+  height: 300px;
+  display: inline-block;
+  outline: solid 1px blue;
 }
 .outer {
-    width:101px
+  width: 101px;
 }
 ```
 
@@ -495,18 +497,18 @@ CSS 属性值可能是以下类型：
 
 ```css
 .outer {
-    width:101px
+  width: 101px;
 }
 
 .inner {
-    width:33.33%;
-    height:300px;
-    display:inline-block;
-    outline:solid 1px blue;
+  width: 33.33%;
+  height: 300px;
+  display: inline-block;
+  outline: solid 1px blue;
 }
 
 .inner:last-child {
-    margin-right:-5px;
+  margin-right: -5px;
 }
 ```
 
@@ -522,18 +524,19 @@ CSS 属性值可能是以下类型：
 
 ```html
 <div class="outer">
-    <div class="fixed"></div>
-    <div class="auto"></div>
+  <div class="fixed"></div>
+  <div class="auto"></div>
 </div>
 ```
 
 ```css
 .fixed {
-    width:200px;
+  width: 200px;
 }
-.fixed, .auto {
-    height:300px;
-    outline:solid 1px blue;
+.fixed,
+.auto {
+  height: 300px;
+  outline: solid 1px blue;
 }
 ```
 
@@ -543,14 +546,14 @@ CSS 属性值可能是以下类型：
 
 ```css
 .fixed {
-    display:inline-block;
-    vertical-align:top;
+  display: inline-block;
+  vertical-align: top;
 }
 .auto {
-    margin-left:-200px;
-    width:100%;
-    display:inline-block;
-    vertical-align:top;
+  margin-left: -200px;
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
 }
 ```
 
@@ -558,16 +561,16 @@ CSS 属性值可能是以下类型：
 
 ```css
 .fixed {
-    display:inline-block;
-    vertical-align:top;
+  display: inline-block;
+  vertical-align: top;
 }
 .auto {
-    margin-left:-200px;
-    padding-left:200px;
-    box-sizing:border-box;
-    width:100%;
-    display:inline-block;
-    vertical-align:top;
+  margin-left: -200px;
+  padding-left: 200px;
+  box-sizing: border-box;
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
 }
 ```
 
@@ -643,27 +646,25 @@ Flex 布局中有一种特殊的情况，那就是 flex 容器没有被指定主
 
 ```html
 <div id="parent">
-  <div id="child">
-  </div>
+  <div id="child"></div>
 </div>
 ```
 
 ```css
 #parent {
-  display:flex;
-  width:300px;
-  height:300px;
-  outline:solid 1px;
-  justify-content:center;
-  align-content:center;
-  align-items:center;
+  display: flex;
+  width: 300px;
+  height: 300px;
+  outline: solid 1px;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
 #child {
-  width:100px;
-  height:100px;
-  outline:solid 1px;
+  width: 100px;
+  height: 100px;
+  outline: solid 1px;
 }
-
 ```
 
 思路是创建一个只有一行的 flexbox，然后用 align-items:center; 和 justify-content:center; 来保证行位于容器中，元素位于行中。
@@ -672,31 +673,27 @@ Flex 布局中有一种特殊的情况，那就是 flex 容器没有被指定主
 
 ```html
 <div class="parent">
-  <div class="child" style="height:300px;">
-  </div>
-  <div class="child">
-  </div>
+  <div class="child" style="height:300px;"></div>
+  <div class="child"></div>
 </div>
-<br/>
+<br />
 <div class="parent">
-  <div class="child" >
-  </div>
-  <div class="child" style="height:300px;">
-  </div>
+  <div class="child"></div>
+  <div class="child" style="height:300px;"></div>
 </div>
 ```
 
 ```css
 .parent {
-  display:flex;
-  width:300px;
-  justify-content:center;
-  align-content:center;
-  align-items:stretch;
+  display: flex;
+  width: 300px;
+  justify-content: center;
+  align-content: center;
+  align-items: stretch;
 }
 .child {
-  width:100px;
-  outline:solid 1px;
+  width: 100px;
+  outline: solid 1px;
 }
 ```
 
@@ -706,28 +703,26 @@ Flex 布局中有一种特殊的情况，那就是 flex 容器没有被指定主
 
 ```html
 <div class="parent">
-  <div class="child1">
-  </div>
-  <div class="child2">
-  </div>
+  <div class="child1"></div>
+  <div class="child2"></div>
 </div>
 ```
 
 ```css
 .parent {
-  display:flex;
-  width:300px;
-  height:200px;
-  background-color:pink;
+  display: flex;
+  width: 300px;
+  height: 200px;
+  background-color: pink;
 }
 .child1 {
-  width:100px;
-  background-color:lightblue;
+  width: 100px;
+  background-color: lightblue;
 }
 .child2 {
-  width:100px;
-  flex:1;
-  outline:solid 1px;
+  width: 100px;
+  flex: 1;
+  outline: solid 1px;
 }
 ```
 
@@ -791,7 +786,7 @@ Flex 布局中有一种特殊的情况，那就是 flex 容器没有被指定主
 
 #### 5.1.5 渐变
 
-在 CSS 中，background-image这样的属性，可以设为渐变。CSS 中支持两种渐变，一种是线性渐变，一种是放射性渐变，我们先了解一下它们的基本用法：
+在 CSS 中，background-image 这样的属性，可以设为渐变。CSS 中支持两种渐变，一种是线性渐变，一种是放射性渐变，我们先了解一下它们的基本用法：
 
 线性渐变的写法是：
 
@@ -826,10 +821,10 @@ color-stop 是一个颜色和一个区段，例如：
 
 ```html
 <style>
-#grad1 {
+  #grad1 {
     height: 200px;
-    background: linear-gradient(45deg, gold 10%, yellow 50%, gold 90%); 
-}
+    background: linear-gradient(45deg, gold 10%, yellow 50%, gold 90%);
+  }
 </style>
 <div id="grad1"></div>
 ```
@@ -844,32 +839,31 @@ radial-gradient(shape size at position, start-color, ..., last-color);
 
 ```html
 <style>
-.button {
+  .button {
     display: inline-block;
     outline: none;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
     font: 14px/100% Arial, Helvetica, sans-serif;
-    padding: .5em 2em .55em;
-    text-shadow: 0 1px 1px rgba(0,0,0,.3);
-    border-radius: .5em;
-    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    padding: 0.5em 2em 0.55em;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 0.5em;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     color: white;
-    border: solid 1px ;
-}
-
+    border: solid 1px;
+  }
 </style>
 <div class="button orange">123</div>
 <script>
-var btn = document.querySelector(".button");
-var h = 25;
-setInterval(function(){
-  h ++;
-  h = h % 360;
-  btn.style.borderColor=`hsl(${h}, 95%, 45%)`
-  btn.style.background=`linear-gradient(to bottom,  hsl(${h},95%,54.1%),  hsl(${h},95%,84.1%))`
-},100);
+  var btn = document.querySelector('.button');
+  var h = 25;
+  setInterval(function() {
+    h++;
+    h = h % 360;
+    btn.style.borderColor = `hsl(${h}, 95%, 45%)`;
+    btn.style.background = `linear-gradient(to bottom,  hsl(${h},95%,54.1%),  hsl(${h},95%,84.1%))`;
+  }, 100);
 </script>
 ```
 
@@ -890,7 +884,7 @@ CSS 中的很多属性还会产生形状，比如我们常见的属性：
 - font-size
 - font-family
 
-**以上四种属性可采用缩写格式：** font: style weight size family; 
+**以上四种属性可采用缩写格式：** font: style weight size family;
 
 ## 6. 交互
 
@@ -905,15 +899,17 @@ CSS 中的很多属性还会产生形状，比如我们常见的属性：
 我们先来看下 animation 的示例，通过示例来了解一下 animation 属性的基本用法:
 
 ```css
-@keyframes mykf
-{
-  from {background: red;}
-  to {background: yellow;}
+@keyframes mykf {
+  from {
+    background: red;
+  }
+  to {
+    background: yellow;
+  }
 }
 
-div
-{
-    animation:mykf 5s infinite;
+div {
+  animation: mykf 5s infinite;
 }
 ```
 
@@ -932,10 +928,18 @@ div
 
 ```css
 @keyframes mykf {
-  0% { top: 0; }
-  50% { top: 30px; }
-  75% { top: 10px; }
-  100% { top: 0; }
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 30px;
+  }
+  75% {
+    top: 10px;
+  }
+  100% {
+    top: 0;
+  }
 }
 ```
 
@@ -943,10 +947,18 @@ div
 
 ```css
 @keyframes mykf {
-  from { top: 0; }
-  50% { top: 30px; }
-  75% { top: 10px; }
-  to { top: 0; }
+  from {
+    top: 0;
+  }
+  50% {
+    top: 30px;
+  }
+  75% {
+    top: 10px;
+  }
+  to {
+    top: 0;
+  }
 }
 ```
 
@@ -967,10 +979,22 @@ div
 
 ```css
 @keyframes mykf {
-  from { top: 0; transition:top ease}
-  50% { top: 30px;transition:top ease-in }
-  75% { top: 10px;transition:top ease-out }
-  to { top: 0; transition:top linear}
+  from {
+    top: 0;
+    transition: top ease;
+  }
+  50% {
+    top: 30px;
+    transition: top ease-in;
+  }
+  75% {
+    top: 10px;
+    transition: top ease-out;
+  }
+  to {
+    top: 0;
+    transition: top linear;
+  }
 }
 ```
 
@@ -1008,86 +1032,86 @@ K 次贝塞尔插值算法需要 k+1 个控制点，最简单的一次贝塞尔�
 
 ```javascript
 function generate(p1x, p1y, p2x, p2y) {
-    const ZERO_LIMIT = 1e-6;
-    // Calculate the polynomial coefficients,
-    // implicit first and last control points are (0,0) and (1,1).
-    const ax = 3 * p1x - 3 * p2x + 1;
-    const bx = 3 * p2x - 6 * p1x;
-    const cx = 3 * p1x;
+  const ZERO_LIMIT = 1e-6;
+  // Calculate the polynomial coefficients,
+  // implicit first and last control points are (0,0) and (1,1).
+  const ax = 3 * p1x - 3 * p2x + 1;
+  const bx = 3 * p2x - 6 * p1x;
+  const cx = 3 * p1x;
 
-    const ay = 3 * p1y - 3 * p2y + 1;
-    const by = 3 * p2y - 6 * p1y;
-    const cy = 3 * p1y;
+  const ay = 3 * p1y - 3 * p2y + 1;
+  const by = 3 * p2y - 6 * p1y;
+  const cy = 3 * p1y;
 
-    function sampleCurveDerivativeX(t) {
-        // `ax t^3 + bx t^2 + cx t' expanded using Horner 's rule.
-        return (3 * ax * t + 2 * bx) * t + cx;
-    }
+  function sampleCurveDerivativeX(t) {
+    // `ax t^3 + bx t^2 + cx t' expanded using Horner 's rule.
+    return (3 * ax * t + 2 * bx) * t + cx;
+  }
 
-    function sampleCurveX(t) {
-        return ((ax * t + bx) * t + cx ) * t;
-    }
+  function sampleCurveX(t) {
+    return ((ax * t + bx) * t + cx) * t;
+  }
 
-    function sampleCurveY(t) {
-        return ((ay * t + by) * t + cy ) * t;
-    }
+  function sampleCurveY(t) {
+    return ((ay * t + by) * t + cy) * t;
+  }
 
-    // Given an x value, find a parametric value it came from.
-    function solveCurveX(x) {
-        var t2 = x;
-        var derivative;
-        var x2;
+  // Given an x value, find a parametric value it came from.
+  function solveCurveX(x) {
+    var t2 = x;
+    var derivative;
+    var x2;
 
-        // https://trac.webkit.org/browser/trunk/Source/WebCore/platform/animation
-        // First try a few iterations of Newton's method -- normally very fast.
-        // http://en.wikipedia.org/wiki/Newton's_method
-        for (let i = 0; i < 8; i++) {
-            // f(t)-x=0
-            x2 = sampleCurveX(t2) - x;
-            if (Math.abs(x2) < ZERO_LIMIT) {
-                return t2;
-            }
-            derivative = sampleCurveDerivativeX(t2);
-            // == 0, failure
-            /* istanbul ignore if */
-            if (Math.abs(derivative) < ZERO_LIMIT) {
-                break;
-            }
-            t2 -= x2 / derivative;
-        }
-
-        // Fall back to the bisection method for reliability.
-        // bisection
-        // http://en.wikipedia.org/wiki/Bisection_method
-        var t1 = 1;
-        /* istanbul ignore next */
-        var t0 = 0;
-
-        /* istanbul ignore next */
-        t2 = x;
-        /* istanbul ignore next */
-        while (t1 > t0) {
-            x2 = sampleCurveX(t2) - x;
-            if (Math.abs(x2) < ZERO_LIMIT) {
-                return t2;
-            }
-            if (x2 > 0) {
-                t1 = t2;
-            } else {
-                t0 = t2;
-            }
-            t2 = (t1 + t0) / 2;
-        }
-
-        // Failure
+    // https://trac.webkit.org/browser/trunk/Source/WebCore/platform/animation
+    // First try a few iterations of Newton's method -- normally very fast.
+    // http://en.wikipedia.org/wiki/Newton's_method
+    for (let i = 0; i < 8; i++) {
+      // f(t)-x=0
+      x2 = sampleCurveX(t2) - x;
+      if (Math.abs(x2) < ZERO_LIMIT) {
         return t2;
+      }
+      derivative = sampleCurveDerivativeX(t2);
+      // == 0, failure
+      /* istanbul ignore if */
+      if (Math.abs(derivative) < ZERO_LIMIT) {
+        break;
+      }
+      t2 -= x2 / derivative;
     }
 
-    function solve(x) {
-        return sampleCurveY(solveCurveX(x));
+    // Fall back to the bisection method for reliability.
+    // bisection
+    // http://en.wikipedia.org/wiki/Bisection_method
+    var t1 = 1;
+    /* istanbul ignore next */
+    var t0 = 0;
+
+    /* istanbul ignore next */
+    t2 = x;
+    /* istanbul ignore next */
+    while (t1 > t0) {
+      x2 = sampleCurveX(t2) - x;
+      if (Math.abs(x2) < ZERO_LIMIT) {
+        return t2;
+      }
+      if (x2 > 0) {
+        t1 = t2;
+      } else {
+        t0 = t2;
+      }
+      t2 = (t1 + t0) / 2;
     }
 
-    return solve;
+    // Failure
+    return t2;
+  }
+
+  function solve(x) {
+    return sampleCurveY(solveCurveX(x));
+  }
+
+  return solve;
 }
 ```
 
@@ -1104,56 +1128,60 @@ function generate(p1x, p1y, p2x, p2y) {
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Simulation</title>
-  <style>
-    .ball {
-      width:10px;
-      height:10px;
-      background-color:black;
-      border-radius:5px;
-      position:absolute;
-      left:0;
-      top:0;
-      transform:translateY(180px);
-    }
-  </style>
-</head>
-<body>
-  <label> 运动时间：<input value="3.6" type="number" id="t" />s</label><br/>
-  <label> 初速度：<input value="-21" type="number" id="vy" /> px/s</label><br/>
-  <label> 水平速度：<input value="21" type="number" id="vx" /> px/s</label><br/>
-  <label> 重力：<input value="10" type="number" id="g" /> px/s²</label><br/>
-  <button onclick="createBall()"> 来一个球 </button>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Simulation</title>
+    <style>
+      .ball {
+        width: 10px;
+        height: 10px;
+        background-color: black;
+        border-radius: 5px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translateY(180px);
+      }
+    </style>
+  </head>
+  <body>
+    <label> 运动时间：<input value="3.6" type="number" id="t" />s</label><br />
+    <label> 初速度：<input value="-21" type="number" id="vy" /> px/s</label><br />
+    <label> 水平速度：<input value="21" type="number" id="vx" /> px/s</label><br />
+    <label> 重力：<input value="10" type="number" id="g" /> px/s²</label><br />
+    <button onclick="createBall()">来一个球</button>
+  </body>
 </html>
 ```
 
 ```javascript
-function generateCubicBezier (v, g, t){
-    var a = v / g;
-    var b = t + v / g;
+function generateCubicBezier(v, g, t) {
+  var a = v / g;
+  var b = t + v / g;
 
-    return [[(a / 3 + (a + b) / 3 - a) / (b - a), (a * a / 3 + a * b * 2 / 3 - a * a) / (b * b - a * a)],
-        [(b / 3 + (a + b) / 3 - a) / (b - a), (b * b / 3 + a * b * 2 / 3 - a * a) / (b * b - a * a)]];
+  return [
+    [(a / 3 + (a + b) / 3 - a) / (b - a), ((a * a) / 3 + (a * b * 2) / 3 - a * a) / (b * b - a * a)],
+    [(b / 3 + (a + b) / 3 - a) / (b - a), ((b * b) / 3 + (a * b * 2) / 3 - a * a) / (b * b - a * a)]
+  ];
 }
 
 function createBall() {
-  var ball = document.createElement("div");
-  var t = Number(document.getElementById("t").value);
-  var vx = Number(document.getElementById("vx").value);
-  var vy = Number(document.getElementById("vy").value);
-  var g = Number(document.getElementById("g").value);
-  ball.className = "ball";
-  document.body.appendChild(ball)
+  var ball = document.createElement('div');
+  var t = Number(document.getElementById('t').value);
+  var vx = Number(document.getElementById('vx').value);
+  var vy = Number(document.getElementById('vy').value);
+  var g = Number(document.getElementById('g').value);
+  ball.className = 'ball';
+  document.body.appendChild(ball);
   ball.style.transition = `left linear ${t}s, top cubic-bezier(${generateCubicBezier(vy, g, t)}) ${t}s`;
-  setTimeout(function(){ 
-    ball.style.left = `${vx * t}px`; 
-    ball.style.top = `${vy * t + 0.5 * g * t * t}px`; 
+  setTimeout(function() {
+    ball.style.left = `${vx * t}px`;
+    ball.style.top = `${vy * t + 0.5 * g * t * t}px`;
   }, 100);
-  setTimeout(function(){ document.body.removeChild(ball); }, t * 1000);
+  setTimeout(function() {
+    document.body.removeChild(ball);
+  }, t * 1000);
 }
 ```
 

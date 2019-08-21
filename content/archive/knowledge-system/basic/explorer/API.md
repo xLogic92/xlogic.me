@@ -1,9 +1,9 @@
 ---
-title: "前端知识体系之基础知识 - 浏览器: API"
-date: "2019-08-06"
-keyword: "前端知识体系,基础知识,浏览器,API"
-tags: ["前端知识体系","基础知识","浏览器"]
-slug: "2019-08-06-explorer-api"
+title: '前端知识体系之基础知识 - 浏览器: API'
+date: '2019-08-06'
+keyword: '前端知识体系,基础知识,浏览器,API'
+tags: ['前端知识体系', '基础知识', '浏览器']
+slug: '2019-08-06-explorer-api'
 ---
 
 ## 1. DOM API
@@ -16,7 +16,7 @@ DOM API 是最早被设计出来的一批 API，也是用途最广的 API，所�
 
 说起 HTML 文档，这是大家最熟悉的东西了，我们都知道，HTML 文档是一个由标签嵌套而成的树形结构，因此，DOM 也是使用树形的对象模型来描述一个 HTML 文档。
 
-DOM API 大致会包含4个部分。
+DOM API 大致会包含 4 个部分。
 
 - 节点：DOM 树形结构中的节点相关 API。
 - 事件：触发和监听事件相关 API。
@@ -34,11 +34,10 @@ DOM 的树形结构所有的节点有统一的接口 Node，我们按照继承�
 在这些节点中，除了 Document 和 DocumentFrangment，都有与之对应的 HTML 写法，我们可以看一下。
 
 ```html
-Element: <tagname>...</tagname>
-Text: text
-Comment: <!-- comments -->
-DocumentType: <!Doctype html>
-ProcessingInstruction: <?a 1?>
+Element: <tagname>...</tagname> Text: text Comment:
+<!-- comments -->
+DocumentType: <!DOCTYPE html> ProcessingInstruction:
+<?a 1?>
 ```
 
 我们在编写 HTML 代码并且运行后，就会在内存中得到这样一棵 DOM 树，HTML 的写法会被转化成对应的文档模型，而我们则可以通过 JavaScript 等语言去访问这个文档模型。
@@ -140,8 +139,8 @@ document 节点提供了查找元素的能力。比如有下面的几种。
 var collection = document.getElementsByClassName('test');
 console.log(collection.length);
 var test = document.createElement('div');
-test.setAttribute('class', 'test')
-document.documentElement.appendChild(test)
+test.setAttribute('class', 'test');
+document.documentElement.appendChild(test);
 console.log(collection.length);
 ```
 
@@ -181,26 +180,42 @@ WIMP 是如此成功，以至于今天很多的前端工程师会有一个观点
 
 ```html
 <body>
-  <input id="i"/>
+  <input id="i" />
 </body>
 ```
 
 ```javascript
-document.body.addEventListener("mousedown", () => {
-  console.log("key1")
-}, true)
+document.body.addEventListener(
+  'mousedown',
+  () => {
+    console.log('key1');
+  },
+  true
+);
 
-document.getElementById("i").addEventListener("mousedown", () => {
-  console.log("key2")
-}, true)
+document.getElementById('i').addEventListener(
+  'mousedown',
+  () => {
+    console.log('key2');
+  },
+  true
+);
 
-document.body.addEventListener("mousedown", () => {
-  console.log("key11")
-}, false)
+document.body.addEventListener(
+  'mousedown',
+  () => {
+    console.log('key11');
+  },
+  false
+);
 
-document.getElementById("i").addEventListener("mousedown", () => {
-  console.log("key22")
-}, false)
+document.getElementById('i').addEventListener(
+  'mousedown',
+  () => {
+    console.log('key22');
+  },
+  false
+);
 ```
 
 我们监听了 body 和一个 body 的子元素上的鼠标按下事件，捕获和冒泡分别监听，可以看到，最终产生的顺序是：
@@ -228,9 +243,9 @@ addEventListener 有三个参数：
 
 ```javascript
 var o = {
-  handleEvent: event => console.log(event)
-}
-document.body.addEventListener("keydown", o, false);
+  handleEvent: (event) => console.log(event)
+};
+document.body.addEventListener('keydown', o, false);
 ```
 
 第三个参数不一定是 bool 值，也可以是个对象，它提供了更多选项。
@@ -273,7 +288,7 @@ document.body.blur(); // 移开焦点
 自定义事件的代码示例如下（来自 MDN）：
 
 ```javascript
-var evt = new Event("look", {"bubbles":true, "cancelable":false});
+var evt = new Event('look', { bubbles: true, cancelable: false });
 document.dispatchEvent(evt);
 ```
 
@@ -295,10 +310,10 @@ Range API 表示一个 HTML 上的范围，这个范围是以文字为最小单�
 
 ```javascript
 var range = new Range(),
-    firstText = p.childNodes[1],
-    secondText = em.firstChild
-range.setStart(firstText, 9) // do not forget the leading space
-range.setEnd(secondText, 4)
+  firstText = p.childNodes[1],
+  secondText = em.firstChild;
+range.setStart(firstText, 9); // do not forget the leading space
+range.setEnd(secondText, 4);
 ```
 
 此外，通过 Range 也可以从用户选中区域创建，这样的 Range 用于处理用户选中区域:
@@ -310,8 +325,8 @@ var range = document.getSelection().getRangeAt(0);
 更改 Range 选中区段内容的方式主要是取出和插入，分别由 extractContents 和 insertNode 来实现。
 
 ```javascript
-var fragment = range.extractContents()
-range.insertNode(document.createTextNode("aaaa"))
+var fragment = range.extractContents();
+range.insertNode(document.createTextNode('aaaa'));
 ```
 
 ### 1.4 遍历
@@ -325,9 +340,8 @@ NodeIterator 的基本用法示例如下：
 ```javascript
 var iterator = document.createNodeIterator(document.body, NodeFilter.SHOW_TEXT | NodeFilter.SHOW_COMMENT, null, false);
 var node;
-while(node = iterator.nextNode())
-{
-    console.log(node);
+while ((node = iterator.nextNode())) {
+  console.log(node);
 }
 ```
 
@@ -340,13 +354,11 @@ while(node = iterator.nextNode())
 我们再来看一下 TreeWalker 的用法。
 
 ```javascript
-var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_ELEMENT, null, false)
+var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_ELEMENT, null, false);
 var node;
-while(node = walker.nextNode())
-{
-    if(node.tagName === "p")
-        node.nextSibling();
-    console.log(node);
+while ((node = walker.nextNode())) {
+  if (node.tagName === 'p') node.nextSibling();
+  console.log(node);
 }
 ```
 
@@ -376,11 +388,11 @@ DOM 中的所有的属性都是用来表现语义的属性，CSSOM 的则都是�
 
 ```html
 <style title="Hello">
-a {
-  color:red;
-}
+  a {
+    color: red;
+  }
 </style>
-<link rel="stylesheet" title="x" href="data:text/css,p%7Bcolor:blue%7D">
+<link rel="stylesheet" title="x" href="data:text/css,p%7Bcolor:blue%7D" />
 ```
 
 我们创建好样式表后，还有可能要对它进行一些操作。如果我们以 DOM 的角度去理解的话，这些标签在 DOM 中是一个节点，它们有节点的内容、属性，这两个标签中，CSS 代码有的在属性、有的在子节点。这两个标签也遵循 DOM 节点的操作规则，所以可以使用 DOM API 去访问。
@@ -390,7 +402,7 @@ a {
 我们首先了解一下 CSSOM API 的基本用法，一般来说，我们需要先获取文档中所有的样式表：
 
 ```javascript
-document.styleSheets
+document.styleSheets;
 ```
 
 document 的 styleSheets 属性表示文档中的所有样式表，这是一个只读的列表，我们可以用方括号运算符下标访问样式表，也可以使用 item 方法来访问，它有 length 属性表示文档中的样式表数量。
@@ -398,14 +410,14 @@ document 的 styleSheets 属性表示文档中的所有样式表，这是一个�
 样式表只能使用 style 标签或者 link 标签创建，我们虽然无法用 CSSOM API 来创建样式表，但是我们可以修改样式表中的内容。
 
 ```javascript
-document.styleSheets[0].insertRule("p { color:pink; }", 0)
-document.styleSheets[0].removeRule(0)
+document.styleSheets[0].insertRule('p { color:pink; }', 0);
+document.styleSheets[0].removeRule(0);
 ```
 
 更进一步，我们可以获取样式表中特定的规则（Rule），并且对它进行一定的操作，具体来说，就是使用它的 cssRules 属性来实现：
 
 ```javascript
-document.styleSheets[0].cssRules
+document.styleSheets[0].cssRules;
 ```
 
 这里取到的规则列表，同样是支持 item、length 和下标运算。
@@ -459,7 +471,7 @@ CSSOM View 这一部分的 API，可以视为 DOM API 的扩展，它在原本�
 此外，窗口 API 还规定了 window.open() 的第三个参数：
 
 ```javascript
-window.open("about:blank", "_blank" ,"width=100,height=100,left=100,right=100" )
+window.open('about:blank', '_blank', 'width=100,height=100,left=100,right=100');
 ```
 
 一些浏览器出于安全考虑没有实现，也不适用于移动端浏览器，这部分你仅需简单了解即可。下面我们来了解一下滚动 API。
@@ -480,9 +492,9 @@ window.open("about:blank", "_blank" ,"width=100,height=100,left=100,right=100" )
 通过这些属性和方法，我们可以读取视口的滚动位置和操纵视口滚动。不过，要想监听视口滚动事件，我们需要在 document 对象上绑定事件监听函数：
 
 ```javascript
-document.addEventListener("scroll", function(event){
+document.addEventListener('scroll', function(event) {
   //......
-})
+});
 ```
 
 视口滚动 API 是页面的顶层容器的滚动，大部分移动端浏览器都会采用一些性能优化，它和元素滚动不完全一样，请大家一定建立这个区分的意识。
@@ -502,9 +514,9 @@ document.addEventListener("scroll", function(event){
 除此之外，可滚动的元素也支持 scroll 事件，我们在元素上监听它的事件即可：
 
 ```javascript
-element.addEventListener("scroll", function(event){
+element.addEventListener('scroll', function(event) {
   //......
-})
+});
 ```
 
 这里你需要注意一点，元素部分的 API 设计与视口滚动命名风格上略有差异，你在使用的时候不要记混。
@@ -557,4 +569,3 @@ var offsetX = document.documentElement.getBoundingClientRect().x - element.getBo
 如这段代码所示，我们只需要获取文档根节点的位置，再相减即可得到它们的坐标。
 
 这两个 API 的兼容性非常好，定义又非常清晰，建议你如果是用 JavaScript 实现视觉效果时，尽量使用这两个 API。
-

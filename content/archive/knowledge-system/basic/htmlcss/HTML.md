@@ -1,9 +1,9 @@
 ---
-title: "前端知识体系之基础知识 - HTML: 元素和语言"
-date: "2019-08-03"
-keyword: "前端知识体系,基础知识,HTML,元素和语言"
-tags: ["前端知识体系","基础知识","HTML"]
-slug: "2019-08-03-html"
+title: '前端知识体系之基础知识 - HTML: 元素和语言'
+date: '2019-08-03'
+keyword: '前端知识体系,基础知识,HTML,元素和语言'
+tags: ['前端知识体系', '基础知识', 'HTML']
+slug: '2019-08-03-html'
 ---
 
 ## 1. 文档元信息
@@ -152,7 +152,7 @@ link 标签会生成一个链接，它可能生成超链接，也可能生成外
 link 标签的链接类型主要通过 rel 属性来区分，其代码类似下面：
 
 ```html
-<link rel="xx" ...>
+<link rel="xx" ... />
 ```
 
 #### 3.1.1 超链接类 link 标签
@@ -164,7 +164,7 @@ link 标签具有特定的 rel 属性，会成为特定类型的 link 标签。�
 - canonical 型 link
 
   ```html
-  <link rel="canonical" href="...">
+  <link rel="canonical" href="..." />
   ```
 
   这个标签提示页面它的主 URL，在网站中常常有多个 URL 指向同一页面的情况，搜索引擎访问这类页面时会去掉重复的页面，这个 link 会提示搜索引擎保留哪一个 URL。
@@ -172,7 +172,7 @@ link 标签具有特定的 rel 属性，会成为特定类型的 link 标签。�
 - alternate 型 link
 
   ```html
-  <link rel="alternate" href="...">
+  <link rel="alternate" href="..." />
   ```
 
   这个标签提示页面它的变形形式，这个所谓的变形可能是当前页面内容的不同格式、不同语言或者为不同的设备设计的版本，这种 link 通常也是提供给搜索引擎来使用的。
@@ -180,7 +180,7 @@ link 标签具有特定的 rel 属性，会成为特定类型的 link 标签。�
   alternate 型的 link 的一个典型应用场景是，页面提供 rss 订阅时，可以用这样的 link 来引入：
 
   ```html
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="...">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="..." />
   ```
 
   除了搜索引擎外，很多浏览器插件都能识别这样的 link。
@@ -253,7 +253,7 @@ link 标签具有特定的 rel 属性，会成为特定类型的 link 标签。�
   样式表大概是所有人最熟悉的 link 标签用法了。它的样子是下面这样的。
 
   ```html
-  <link rel="stylesheet" href="xxx.css" type="text/css">
+  <link rel="stylesheet" href="xxx.css" type="text/css" />
   ```
 
   基本用法是从一个 CSS 文件创建一个样式表。这里 type 属性可以没有，如果有，必须是"text/css"才会生效。
@@ -348,9 +348,8 @@ script、img、picture、audio、video、iframe 几个标签均能产生替换�
 
 ```html
 <script type="text/javascript">
-console.log("Hello world!");
+  console.log('Hello world!');
 </script>
-
 
 <script type="text/javascript" src="my.js"></script>
 ```
@@ -366,7 +365,7 @@ img 标签的作用是引入一张图片。这个标签是没有办法像 script
 如果一定不想要引入独立文件，可以使用 data uri，我们来看个实际的例子：
 
 ```html
- <img src='data:image/svg+xml;charset=utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="100" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)"/></svg>'/>
+<img src='data:image/svg+xml;charset=utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="100" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)"/></svg>' />
 ```
 
 这个例子中我们使用了 data uri 作为图片的 src，这样，并没有产生独立的文件，客观上做到了和内联相同的结果，这是一个常用的技巧。
@@ -380,13 +379,14 @@ img 标签还有一组重要的属性，那就是 srcset 和 sizes，它们是 s
 这两个属性的作用是在不同的屏幕大小和特性下，使用不同的图片源。下面一个例子也来自 MDN，它展示了 srcset 和 sizes 的用法
 
 ```html
-<img srcset="elva-fairy-320w.jpg 320w,
-             elva-fairy-480w.jpg 480w,
-             elva-fairy-800w.jpg 800w"
-     sizes="(max-width: 320px) 280px,
+<img
+  srcset="elva-fairy-320w.jpg 320w, elva-fairy-480w.jpg 480w, elva-fairy-800w.jpg 800w"
+  sizes="(max-width: 320px) 280px,
             (max-width: 480px) 440px,
             800px"
-     src="elva-fairy-800w.jpg" alt="Elva dressed as a fairy">
+  src="elva-fairy-800w.jpg"
+  alt="Elva dressed as a fairy"
+/>
 ```
 
 srcset 提供了根据屏幕条件选取图片的能力，但是其实更好的做法，是使用 picture 元素。
@@ -397,14 +397,14 @@ picture 元素可以根据屏幕的条件为其中的 img 元素提供不同的�
 
 ```html
 <picture>
-  <source srcset="image-wide.png" media="(min-width: 600px)">
-  <img src="image-narrow.png">
+  <source srcset="image-wide.png" media="(min-width: 600px)" />
+  <img src="image-narrow.png" />
 </picture>
 ```
 
 picture 元素的设计跟 audio 和 video 保持了一致（稍后我会为你讲解这两个元素），它跟 img 搭配 srcset 和 sizes 不同，它使用 source 元素来指定图片源，并且支持多个。
 
-这里的 media 属性是 media query，跟 CSS 的 @media 规则一致。 
+这里的 media 属性是 media query，跟 CSS 的 @media 规则一致。
 
 ### 4.4 video
 
@@ -413,8 +413,7 @@ picture 元素的设计跟 audio 和 video 保持了一致（稍后我会为你�
 下面例子是一个古典的 video 用法：
 
 ```html
-<video controls="controls" src="movie.ogg">
-</video>
+<video controls="controls" src="movie.ogg"></video>
 ```
 
 这个例子中的代码用 src 来指定视频的源文件。但是因为一些历史原因，浏览器对视频的编码格式兼容问题分成了几个派系，这样，对于一些兼容性要求高的网站，我们使用单一的视频格式是不合适的。
@@ -422,10 +421,10 @@ picture 元素的设计跟 audio 和 video 保持了一致（稍后我会为你�
 现在的 video 标签可以使用 source 标签来指定接入多个视频源。
 
 ```html
-<video controls="controls" >
-  <source src="movie.webm" type="video/webm" >
-  <source src="movie.ogg" type="video/ogg" >
-  <source src="movie.mp4" type="video/mp4">
+<video controls="controls">
+  <source src="movie.webm" type="video/webm" />
+  <source src="movie.ogg" type="video/ogg" />
+  <source src="movie.mp4" type="video/mp4" />
   You browser does not support video.
 </video>
 ```
@@ -440,8 +439,8 @@ video 标签的内容默认会被当做不支持 video 的浏览器显示的内�
 
 ```html
 <audio controls>
-  <source src="song.mp3" type="audio/mpeg">
-  <source src="song.ogg" type="audio/ogg">
+  <source src="song.mp3" type="audio/mpeg" />
+  <source src="song.ogg" type="audio/ogg" />
   <p>You browser does not support audio.</p>
 </audio>
 ```
@@ -476,27 +475,25 @@ iframe 标签也是各种安全问题的重灾区。opener、window.name、甚�
 
 ## 5. 表单
 
-### 5.1 HTML表单
+### 5.1 HTML 表单
 
-HTML 表单用于收集用户输入。`<form>  `元素定义 HTML 表单：
+HTML 表单用于收集用户输入。`<form>`元素定义 HTML 表单：
 
 ```html
 <form>
- .
-form elements
- .
+  . form elements .
 </form>
 ```
 
-### 5.2 HTML表单元素
+### 5.2 HTML 表单元素
 
 HTML 表单包含表单元素，表单元素指的是不同类型的 input 元素、复选框、单选按钮、提交按钮等等。
 
-- `<input> ` 元素有很多形态，根据不同的 type属性。
+- `<input>` 元素有很多形态，根据不同的 type 属性。
 
-  - `<input type="text"> `定义用于文本输入的单行输入字段；
-  - `<input type="checkbox"> `定义复选框；
-  - `<input type="radio"> `定义单选按钮；
+  - `<input type="text">`定义用于文本输入的单行输入字段；
+  - `<input type="checkbox">`定义复选框；
+  - `<input type="radio">`定义单选按钮；
   - `<input type="submit">` 定义用于向表单处理程序（form-handler）提交表单的按钮；
   - …...
 
@@ -511,7 +508,7 @@ HTML 表单包含表单元素，表单元素指的是不同类型的 input 元�
   </select>
   ```
 
-- `<textarea> ` 元素定义多行输入字段（文本域）
+- `<textarea>` 元素定义多行输入字段（文本域）
 
   ```html
   <textarea name="message" rows="10" cols="30">
@@ -528,8 +525,8 @@ HTML 表单包含表单元素，表单元素指的是不同类型的 input 元�
 HTML5 增加了如下表单元素：
 
 - `<datalist>` 代表提供给其他控件的一组预定义选项；
-- `<keygen> ` 代表一个密钥对生成器控件；
-- `<output> ` 代表计算值；
+- `<keygen>` 代表一个密钥对生成器控件；
+- `<output>` 代表计算值；
 - `<progress>` 代表进度条；
 - `<meter>` 代表滑动条。
 
@@ -539,17 +536,17 @@ HTML5 增加了如下表单元素：
 
 ```html
 <table>
-    <thead>
-        <tr>
-            <th colspan="2">The table header</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>The table body</td>
-            <td>with two columns</td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th colspan="2">The table header</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>The table body</td>
+      <td>with two columns</td>
+    </tr>
+  </tbody>
 </table>
 ```
 
@@ -568,7 +565,7 @@ HTML5 增加了如下表单元素：
 
 我们已经提到了大部分的 HTML 标签，但是为了突出重点，我们会忽略一些标签类型，以及弱化讲解一些标签类型，比如表单类和表格类这类目前使用场景较少的标签。
 
-剩下的标签可以通过查阅HTML标准获得，所有**标准化的 HTML5 标签**可查阅[HTML5 标签列表](https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5/HTML5_element_list)。
+剩下的标签可以通过查阅 HTML 标准获得，所有**标准化的 HTML5 标签**可查阅[HTML5 标签列表](https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5/HTML5_element_list)。
 
 ## 8. 语言
 
@@ -640,19 +637,19 @@ DTD 的全称是 Document Type Defination，也就是文档类型定义。SGML �
 HTML4.01 有三种 DTD。分别是严格模式、过渡模式和 frameset 模式。
 
 ```html
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 ```
 
 严格模式的 DTD 规定了 HTML4.01 中需要的标签。
 
 ```html
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 ```
 
 过渡模式的 DTD 除了 html4.01，还包含了一些被贬斥的标签，这些标签已经不再推荐使用了，但是过渡模式中仍保留了它们。
 
 ```html
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
 ```
 
 frameset 结构的网页如今已经很少见到了，它使用 frameset 标签把几个网页组合到一起。
@@ -662,8 +659,7 @@ frameset 结构的网页如今已经很少见到了，它使用 frameset 标签�
 版本一
 
 ```html
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 ```
 
 版本二
@@ -676,8 +672,7 @@ http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 版本三
 
 ```html
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
 ```
 
 其实你看看就知道，这些复杂的 DTD 写法并没有什么实际作用（浏览器根本不会用 SGML 引擎解析它们），因此，到了 HTML5，干脆放弃了 SGML 子集这项坚持，规定了一个简单的，大家都能记住的 DTD：
@@ -697,10 +692,7 @@ http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 所谓文本实体定义就是类似以下的代码：
 
 ```html
-&lt;
-&nbsp;
-&gt;
-&amp;
+&lt; &nbsp; &gt; &amp;
 ```
 
 每一个文本实体由 `&` 开头，由 `;` 结束，这属于基本语法的规定，文本实体可以用#后跟一个十进制数字，表示字符 Unicode 值。除此之外这两个符号之间的内容，则由 DTD 决定。
@@ -712,7 +704,7 @@ xmlns 属性可以在文档中定义一个或多个可供选择的命名空间�
 例如，如果需要使用符合 XML 规范的 XHTML 文档，则应该在文档中的`<html>` 标签中至少使用一个 xmlns 属性，以指定整个文档所使用的主要命名空间：
 
 ```html
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"></html>
 ```
 
 如果需要在一个 div 元素中显示一串数学公式，则可以为该 div 元素定义一个数学命名空间。比如这样：
