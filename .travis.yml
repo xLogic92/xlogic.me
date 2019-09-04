@@ -2,28 +2,28 @@ language: node_js
 node_js: 10.13.0
 cache:
   directories:
-  - node_modules
+    - node_modules
 install:
-- wget https://github.com/gohugoio/hugo/releases/download/v0.51/hugo_0.51_Linux-64bit.deb
-- sudo dpkg -i hugo*.deb
-- hugo version
-- rm -rf public
-- npm install
+  - wget https://github.com/gohugoio/hugo/releases/download/v0.51/hugo_0.51_Linux-64bit.deb
+  - sudo dpkg -i hugo*.deb
+  - hugo version
+  - rm -rf public
+  - npm install
 script:
-- hugo --buildFuture
-- gulp
-- echo 'Build done!'
+  - hugo --buildFuture
+  - gulp
+  - echo 'Build done!'
 after_success:
-- cd public
-- scp -r ./ root@121.43.180.165:/home/www/blog;
+  - cd public
+  - scp -r ./ root@121.43.180.165:/home/www/blog;
 branches:
   only:
-  - master
+    - master
 before_install:
-- openssl aes-256-cbc -K $encrypted_1e28cf56e339_key -iv $encrypted_1e28cf56e339_iv
-  -in id_rsa.enc -out ~/.ssh/id_rsa -d
-- chmod 600 ~/.ssh/id_rsa
+  - openssl aes-256-cbc -K $encrypted_1e28cf56e339_key -iv $encrypted_1e28cf56e339_iv
+    -in id_rsa.enc -out ~/.ssh/id_rsa -d
+  - chmod 600 ~/.ssh/id_rsa
 addons:
   ssh_known_hosts: 121.43.180.165
 notifications:
-  webhooks: https://oapi.dingtalk.com/robot/send?access_token=f36cedaf6513e86f4c068ec8cebf38fb6b0daccb0bad0df59991eadcbaecc342
+  webhooks: https://oapi.dingtalk.com/robot/send?access_token=cde0775800b08dd58513ac07226dc111e5fd050ca1ff68ac38e5d8523a4a7862
