@@ -17,7 +17,7 @@ googleAnalytics = "UA-143704500-1"
   # Set the site copyright
   logo = "/images/logo.png"
   copyright = "Copyright © 2019 xLogic"
-  beian = "浙ICP备14031527号"
+  beian = "浙ICP备14031527号-3"
 
   enableRSS = true
   # Add custom assets with their paths relative to the static folder
