@@ -16,7 +16,7 @@ googleAnalytics = "UA-143704500-1"
 
   # Set the site copyright
   logo = "/images/logo.png"
-  copyright = "Copyright © 2019 xLogic"
+  copyright = "Copyright © 2019 - 2020 xLogic"
   beian = "浙ICP备14031527号-3"
 
   enableRSS = true
