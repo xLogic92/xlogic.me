@@ -26,4 +26,4 @@ before_install:
 addons:
   ssh_known_hosts: 121.43.180.165
 notifications:
-  webhooks: https://oapi.dingtalk.com/robot/send?access_token=bac2d35d55b9c537e45857a43070bd708f11f79dc208f7a78a379b3b940c3135
+  webhooks: https://oapi.dingtalk.com/robot/send?access_token=9d6aff336851fbc2e68992630091546a3e143c8de433e8a0f85cd1792c756456
