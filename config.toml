@@ -43,7 +43,7 @@ googleAnalytics = "UA-143704500-1"
   [params.social]
     [params.social.github]
       name = "github"
-      url  = "https://github.com/xLogic92"
+      url  = "https://github.com/xlogiccc"
       iconfont = "fa fa-github"
   
 # And you can even create generic menu

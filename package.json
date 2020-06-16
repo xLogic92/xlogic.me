@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xLogic92/xlogic.me.git"
+    "url": "git+https://github.com/xlogiccc/xlogic.me.git"
   },
   "author": "xLogic",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xLogic92/xlogic.me/issues"
+    "url": "https://github.com/xlogiccc/xlogic.me/issues"
   },
-  "homepage": "https://github.com/xLogic92/xlogic.me#readme",
+  "homepage": "https://github.com/xlogiccc/xlogic.me#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
     "husky": "^3.0.4",
