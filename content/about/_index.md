@@ -3,7 +3,7 @@ title: 'About Me'
 hidden: true
 ---
 
-# 前端 X 计划 - WEB CHONG! CHONG!! CHONG!!!
+# X Labs - Universal Arsenal.
 
 > Not a dreamer, at best be regarded as an idealist programmer.
 
@@ -14,5 +14,5 @@ hidden: true
 # 个人信息
 
 - xLogic
-- 职业: 前端工程师
+- 职业: 全栈工程师
 - 城市: 杭州

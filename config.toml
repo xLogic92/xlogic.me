@@ -10,7 +10,7 @@ googleAnalytics = "UA-143704500-1"
 
 [params]
   # Metadata mostly used in document's head
-  subtitle = "Universal Arsenal"
+  subtitle = "Universal Arsenal."
   description = "X Labs, Mr.X's Universal Arsenal."
   keywords = "xLogic, X Labs, Blog, 博客"
 
