@@ -2,7 +2,7 @@
 baseurl = "https://xlogic.me/"
 languageCode = "zh-CN"
 theme = "hugo-theme-xplan"
-title = "前端X计划"
+title = "X Labs"
 googleAnalytics = "UA-143704500-1"
 
 [author]
@@ -10,9 +10,9 @@ googleAnalytics = "UA-143704500-1"
 
 [params]
   # Metadata mostly used in document's head
-  subtitle = "WEB CHONG! CHONG!! CHONG!!!"
-  description = "前端X计划，一个构建知识体系的前端技术博客，只有体系化的知识结构才能教导你思考问题、引导你洞察趋势、指导你展开行动。"
-  keywords = "前端X计划, web前端博客, 前端知识体系, 算法修炼, 设计模式, 前端工程化"
+  subtitle = "Universal Arsenal"
+  description = "X Labs, Mr.X's Universal Arsenal."
+  keywords = "xLogic, X Labs, Blog, 博客"
 
   # Set the site copyright
   logo = "/images/logo.png"
